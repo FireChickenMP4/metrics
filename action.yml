@@ -1583,6 +1583,14 @@ runs:
         else
           echo "Using a forked version"
           METRICS_IMAGE=metrics:forked-$METRICS_VERSION
+          if [[ ! $METRICS_USE_PREBUILT_IMAGE =~ ^([Ff]alse|[Oo]ff|[Nn]o|0)$ ]]; then
+            if docker image pull ghcr.io/firechickenmp4/metrics:latest; then
+              echo "Using pre-built fork image ghcr.io/firechickenmp4/metrics:latest"
+              METRICS_IMAGE=ghcr.io/firechickenmp4/metrics:latest
+            else
+              echo "Pre-built fork image is unavailable, falling back to a local build"
+            fi
+          fi
         fi
         echo "Image name: $METRICS_IMAGE"
 
