@@ -68,6 +68,21 @@ All product and company names are trademarks™ or registered® trademarks of th
 <br></td>
   </tr>
   <tr>
+    <td nowrap="nowrap"><h4><code>plugin_languages_skipped_paths</code></h4></td>
+    <td rowspan="2"><p>Indepth mode - Skipped paths</p>
+<p>Comma-separated list of glob patterns matched against repository-relative file paths.
+Matching files are excluded from the analysis, including from the total size reported above the chart.</p>
+<p>This only applies to <a href="/source/plugins/languages/README.md#plugin_languages_indepth"><code>plugin_languages_indepth</code></a> mode, where historical patches are analysed rather than the current state of each repository.</p>
+<img width="900" height="1" alt=""></td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap"><b>type:</b> <code>array</code>
+<i>(comma-separated)</i>
+<br>
+<b>example:</b> <code>**/target/**, **/dist/**</code>
+<br></td>
+  </tr>
+  <tr>
     <td nowrap="nowrap"><h4><code>plugin_languages_limit</code></h4></td>
     <td rowspan="2"><p>Display limit</p>
 <img width="900" height="1" alt=""></td>

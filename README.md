@@ -4,6 +4,12 @@
 
 Generate metrics that can be embedded everywhere, including your GitHub profile readme! Supports users, organizations, and even repositories!
 
+> [!NOTE]
+> This is a personal fork of [lowlighter/metrics](https://github.com/lowlighter/metrics).
+> It adds a single option, [`plugin_languages_skipped_paths`](/source/plugins/languages/README.md#plugin_languages_skipped_paths),
+> which excludes files matching the given glob patterns from indepth language statistics - for example committed build output such as `**/target/**`.
+> Everything else is unchanged, and the fork is not maintained beyond that.
+
 <table>
   <tr>
     <th align="center">For user accounts</th>
