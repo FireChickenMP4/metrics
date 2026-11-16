@@ -281,6 +281,10 @@ inputs:
     description: Skipped repositories
     default: <default-value>
 
+  plugin_languages_skipped_paths:
+    description: Indepth mode - Skipped paths
+    default: <default-value>
+
   plugin_languages_limit:
     description: Display limit
     default: <default-value>
