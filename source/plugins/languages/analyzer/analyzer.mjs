@@ -9,7 +9,7 @@ import core from "@actions/core"
 /**Analyzer */
 export class Analyzer {
   /**Constructor */
-  constructor(login, {account = "bypass", authoring = [], uid = Math.random(), shell, rest = null, context = {mode: "user"}, skipped = [], categories = ["programming", "markup"], timeout = {global: NaN, repositories: NaN}}) {
+  constructor(login, {account = "bypass", authoring = [], uid = Math.random(), shell, rest = null, context = {mode: "user"}, skipped = [], skipped_paths = [], categories = ["programming", "markup"], timeout = {global: NaN, repositories: NaN}}) {
     //User informations
     this.login = login
     this.account = account
@@ -31,6 +31,7 @@ export class Analyzer {
 
     //Options
     this.skipped = skipped
+    this.skipped_paths = skipped_paths
     this.categories = categories
     this.timeout = timeout
 

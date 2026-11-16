@@ -5,6 +5,8 @@ import os from "os"
 import paths from "path"
 import { Analyzer } from "./analyzer.mjs"
 
+import { minimatch } from "minimatch"
+
 /**Indepth analyzer */
 export class IndepthAnalyzer extends Analyzer {
   /**Constructor */
@@ -192,12 +194,22 @@ export class IndepthAnalyzer extends Analyzer {
     return super.analyze(path, {commits})
   }
 
+  /**Whether a file is excluded by the skipped paths patterns*/
+  isskipped(root, file) {
+    if (!this.skipped_paths.length)
+      return false
+    const relative = file.startsWith(`${root}/`) ? file.slice(root.length + 1) : file
+    return this.skipped_paths.some(pattern => minimatch(relative, pattern, {dot: true, nocase: true}))
+  }
+
   /**Run linguist against a commit and compute edited lines and bytes*/
   async linguist(path, {commit, cache}) {
     const result = {total: 0, files: 0, missed: {lines: 0, bytes: 0}, lines: {}, stats: {}}
     const edited = new Set()
     const seen = new Set()
     for (const edition of commit.editions) {
+      if (this.isskipped(path, edition.path))
+        continue
       edited.add(edition.path)
 
       //Guess file language with linguist (only run it once per sha)

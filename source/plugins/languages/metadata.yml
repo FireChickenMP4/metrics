@@ -41,6 +41,20 @@ inputs:
     example: my-repo-1, my-repo-2, owner/repo-3, ...
     inherits: repositories_skipped
 
+  plugin_languages_skipped_paths:
+    description: |
+      Indepth mode - Skipped paths
+
+      Comma-separated list of glob patterns matched against repository-relative file paths.
+      Matching files are excluded from the analysis, including from the total size reported above the chart.
+
+      This only applies to [`plugin_languages_indepth`](/source/plugins/languages/README.md#plugin_languages_indepth) mode,
+      where historical patches are analysed rather than the current state of each repository.
+    type: array
+    format: comma-separated
+    default: ""
+    example: "**/target/**, **/dist/**, **/node_modules/**"
+
   plugin_languages_limit:
     description: |
       Display limit

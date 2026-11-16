@@ -4,8 +4,8 @@ import { IndepthAnalyzer } from "./analyzer/indepth.mjs"
 import { RecentAnalyzer } from "./analyzer/recent.mjs"
 
 /**Indepth analyzer */
-export async function indepth({login, data, imports, rest, context, repositories}, {skipped, categories, timeout}) {
-  return new IndepthAnalyzer(login, {shell: imports, uid: data.user.databaseId, skipped, authoring: data.shared["commits.authoring"], timeout, rest, context, categories}).run({repositories})
+export async function indepth({login, data, imports, rest, context, repositories}, {skipped, paths = [], categories, timeout}) {
+  return new IndepthAnalyzer(login, {shell: imports, uid: data.user.databaseId, skipped, skipped_paths: paths, authoring: data.shared["commits.authoring"], timeout, rest, context, categories}).run({repositories})
 }
 
 /**Recent languages activity */
