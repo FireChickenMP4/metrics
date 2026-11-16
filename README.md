@@ -9,6 +9,7 @@ Generate metrics that can be embedded everywhere, including your GitHub profile 
 > It adds a single option, [`plugin_languages_skipped_paths`](/source/plugins/languages/README.md#plugin_languages_skipped_paths),
 > which excludes files matching the given glob patterns from indepth language statistics - for example committed build output such as `**/target/**`.
 > Everything else is unchanged, and the fork is not maintained beyond that.
+> The Dockerfile also drops the `licensed` gem, which no longer builds on the base image, so `plugin_licenses` is unavailable here.
 
 <table>
   <tr>
